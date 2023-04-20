@@ -1,0 +1,90 @@
+#Rozgrzewka
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nowy Rok</title>
+</head>
+<body>
+    <h1>Życzenia noworoczne</h1>
+    <ul>
+        {% for i in range(1, 11) %}
+            <li>Szczęśliwego Nowego Roku!</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+
+#ZAD1
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabliczka mnożenia</title>
+</head>
+<body>
+    <h1>Tabliczka mnożenia</h1>
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                {% for i in range(1, 11) %}
+                    <th>{{ i }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(1, 11) %}
+                <tr>
+                    <th>{{ i }}</th>
+                    {% for j in range(1, 11) %}
+                        <td>{{ i*j }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+#Zad2  
+
+<!doctype html>
+<html>
+  <head>
+    <title>Generowanie danych osobowych</title>
+  </head>
+  <body>
+    <h1>Wygenerowane dane osobowe:</h1>
+    <ul>
+    <script>
+      var imiona = ['Jan', 'Katarzyna', 'Kuba', 'Maria', 'Piotr', 'Anna', 'Bartek', 'Barabasz', 'Krzysztof', 'Ewa'];
+      var nazwiska = ['Kowalski', 'Nowak', 'Wojtowicz', 'Kaczmarek', 'Rzeźnik', 'Kwiatkowski', 'Mazur', 'Krawczyk', 'Pawlak', 'Swoboda'];
+      var daneOsobowe = [];
+ 
+  for (var i = 0; i < 20; i++) {
+    var imie = imiona[Math.floor(Math.random() * imiona.length)];
+    var nazwisko = nazwiska[Math.floor(Math.random() * nazwiska.length)];
+    var wiek = Math.floor(Math.random() * (80 - 18 + 1)) + 18;
+    var numerTelefonu = Math.floor(Math.random() * (8000000 - 5000000 + 1)) + 5000000;
+   
+    var osoba = {
+      "imie": imie,
+      "nazwisko": nazwisko,
+      "wiek": wiek,
+      "numerTelefonu": numerTelefonu
+    };
+   
+    daneOsobowe.push(osoba);
+  }
+ 
+  for (var i = 0; i < daneOsobowe.length; i++) {
+    document.write("<li>");
+    document.write("<strong>Imię i nazwisko:</strong> " + daneOsobowe[i].imie + " " + daneOsobowe[i].nazwisko + "<br>");
+    document.write("<strong>Wiek:</strong> " + daneOsobowe[i].wiek + "<br>");
+    document.write("<strong>Numer telefonu:</strong> " + daneOsobowe[i].numerTelefonu + "<br>");
+    document.write("</li>");
+  }
+</script>
+</ul>
+  </body>
+</html>
