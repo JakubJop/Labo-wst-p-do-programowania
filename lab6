@@ -1,0 +1,174 @@
+#Zad1
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prostokąt</title>
+</head>
+<body>
+  <div id="wynik"></div>
+
+  <script>
+    class Prostokat {
+      constructor(height, width, name) {
+        this.height = height;
+        this.width = width;
+        this.name = name;
+      }
+
+      obwod() {
+        return 2 * (this.height + this.width);
+      }
+
+      pole() {
+        return this.height * this.width;
+      }
+
+      porownajPola(prostokat) {
+        if (this.pole() > prostokat.pole()) {
+          return this;
+        } else {
+          return prostokat;
+        }
+      }
+    }
+
+    let prostokat1 = new Prostokat(4, 5, "Prostokat1");
+    let prostokat2 = new Prostokat(3, 7, "Prostokat2");
+    let prostokat3 = new Prostokat(2, 9, "Prostokat3");
+
+    let wynik = "Obwód " + prostokat1.name + ": " + prostokat1.obwod() + "<br>";
+    wynik += "Pole " + prostokat2.nazwa + ": " + prostokat2.pole() + "<br>";
+
+    let wiekszyProstokat = prostokat1.porownajPola(prostokat2);
+    wynik += "Prostokąt z większym polem: " + wiekszyProstokat.nazwa;
+
+    document.getElementById("wynik").innerHTML = wynik;
+  </script>
+</body>
+</html>
+
+#Zad3
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Trapez</title>
+</head>
+<body>
+  <h1>Klasy Trapez</h1>
+  <script>
+    class Trapez {
+      constructor(height, podstawa1, podstawa2, name) {
+        this.height = height;
+        this.podstawa1 = podstawa1;
+        this.podstawa2 = podstawa2;
+        this.name = name;
+      }
+
+      obliczPole() {
+        return ((this.podstawa1 + this.podstawa2) / 2) * this.height;
+      }
+    }
+
+    let trapez1 = new Trapez(5, 3, 7, "trapez1");
+    let trapez2 = new Trapez(6, 4, 8, "trapez2");
+    let trapez3 = new Trapez(7, 5, 9, "trapez3");
+
+    document.write(trapez1.name + " ma pole " + trapez1.obliczPole() + "<br>");
+    document.write(trapez2.name + " ma pole " + trapez2.obliczPole() + "<br>");
+    document.write(trapez3.name + " ma pole " + trapez3.obliczPole() + "<br>");
+  </script>
+</body>
+</html>
+
+
+#Zad4
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Obliczanie pól figur</title>
+</head>
+<body>
+	<form>
+		<fieldset>
+			<legend>Prostokąt</legend>
+			<label for="prostokat-a">Długość boku a:</label>
+			<input type="number" id="prostokat-a" name="prostokat-a">
+			<label for="prostokat-b">Długość boku b:</label>
+			<input type="number" id="prostokat-b" name="prostokat-b">
+		</fieldset>
+		<fieldset>
+			<legend>Trójkąt</legend>
+			<label for="trojkat-a">Długość boku a:</label>
+			<input type="number" id="trojkat-a" name="trojkat-a">
+			<label for="trojkat-h">Wysokość:</label>
+			<input type="number" id="trojkat-h" name="trojkat-h">
+		</fieldset>
+		<fieldset>
+			<legend>Trapez</legend>
+			<label for="trapez-a">Długość boku a:</label>
+			<input type="number" id="trapez-a" name="trapez-a">
+			<label for="trapez-b">Długość boku b:</label>
+			<input type="number" id="trapez-b" name="trapez-b">
+			<label for="trapez-h">Wysokość:</label>
+			<input type="number" id="trapez-h" name="trapez-h">
+		</fieldset>
+		<button type="button" onclick="obliczPola()">Oblicz pola</button>
+	</form>
+	<div id="wyniki"></div>
+	<script>
+		function obliczPola() {
+			let prostokatA = parseFloat(document.getElementById('prostokat-a').value);
+			let prostokatB = parseFloat(document.getElementById('prostokat-b').value);
+        	let poleProstokata = prostokatA * prostokatB;
+
+			let trojkatA = parseFloat(document.getElementById('trojkat-a').value);
+			let trojkatH = parseFloat(document.getElementById('trojkat-h').value);
+			let poleTrojkata = 0.5 * trojkatA * trojkatH;
+
+			let trapezA = parseFloat(document.getElementById('trapez-a').value);
+			let trapezB = parseFloat(document.getElementById('trapez-b').value);
+			let trapezH = parseFloat(document.getElementById('trapez-h').value);
+
+			// Obliczenie pola trapezu
+			let poleTrapezu = ((trapezA + trapez))
+    </script>
+</body>
+</html>
+
+#Zad6 
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Obliczanie pól figur</title>
+</head>
+<body>
+	<form>
+		<fieldset>
+			<legend>Prostokąt</legend>
+			<label for="prostokat-a">Długość boku a:</label>
+			<input type="number" id="prostokat-a" name="prostokat-a">
+			<label for="prostokat-b">Długość boku b:</label>
+			<input type="number" id="prostokat-b" name="prostokat-b">
+		</fieldset>
+
+    </form>
+    <div id="wyniki"></div>
+
+    <script>
+		function obliczPola(nazwaProstokata) {
+			// Pobranie wymiarów prostokąta
+			let prostokatA = parseFloat(document.getElementById('prostokat-a').value);
+			let prostokatB = parseFloat(document.getElementById('prostokat-b').value);
+
+			// Obliczenie pola prostokąta
+			let poleProstokata = prostokatA * prostokatB;
+
+			// Wypisanie nazwy prostokąta
+			let nazwa = nazwaProstokata || "Prostokąt"; // Jeśli argument nie zostanie podany, nazwa będzie równa "Prostokąt"
+			document.getElementById('wyniki').innerHTML += "<p>" + nazwa + ": " + poleProstokata + "</p>";
+    </script>
+</body>
+</html>
